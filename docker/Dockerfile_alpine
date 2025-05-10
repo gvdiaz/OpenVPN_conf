@@ -9,8 +9,8 @@ RUN mkdir -p /etc/openvpn/{client,server} /opt/scripts
 ARG S_FOLDER=./scripts2build
 
 # Add configuration scripts
-COPY ${S_FOLDER}/build-server.sh /opt/scripts/
-COPY ${S_FOLDER}/build-client.sh /opt/scripts/
+COPY ${S_FOLDER}/build_server.sh /opt/scripts/
+COPY ${S_FOLDER}/build_client.sh /opt/scripts/
 COPY ${S_FOLDER}/entrypoint.sh /opt/scripts/
 
 # Make scripts executable
