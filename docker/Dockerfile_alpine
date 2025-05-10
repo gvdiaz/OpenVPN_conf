@@ -14,8 +14,7 @@ COPY ${S_FOLDER}/build_client.sh /opt/scripts/
 COPY ${S_FOLDER}/entrypoint.sh /opt/scripts/
 
 # Make scripts executable
-# RUN chmod +x /opt/scripts/*.sh
-# Lo debo declarar en algún momento cuando utilizo alguno de los scripts
+RUN chmod +x /opt/scripts/*.sh
 
 # Volume for certificate storage
 VOLUME ["/etc/openvpn"]
