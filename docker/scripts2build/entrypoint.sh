@@ -3,10 +3,10 @@
 # Execute based on BUILD_MODE
 case "${BUILD_MODE}" in
     server)
-        /opt/scripts/build-server.sh
+        /opt/scripts/build_server.sh
         ;;
     client)
-        /opt/scripts/build-client.sh
+        /opt/scripts/build_client.sh
         ;;
     *)
         echo "Usage: BUILD_MODE must be either 'server' or 'client'"
