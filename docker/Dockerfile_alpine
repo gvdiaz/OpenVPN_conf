@@ -1,0 +1,29 @@
+FROM alpine:3.21
+
+# Install dependencies
+RUN apk add --no-cache openvpn easy-rsa bash
+
+# Create working directories
+RUN mkdir -p /etc/openvpn/{client,server} /opt/scripts
+
+ARG S_FOLDER=./scripts2build
+
+# Add configuration scripts
+COPY ${S_FOLDER}/build-server.sh /opt/scripts/
+COPY ${S_FOLDER}//build-client.sh /opt/scripts/
+COPY ${S_FOLDER}/entrypoint.sh /opt/scripts/
+
+# Make scripts executable
+# RUN chmod +x /opt/scripts/*.sh
+# Lo debo declarar en algún momento cuando utilizo alguno de los scripts
+
+# Volume for certificate storage
+VOLUME ["/etc/openvpn"]
+
+# Build argument to select mode
+ARG BUILD_MODE=client
+ENV BUILD_MODE=${BUILD_MODE}
+
+WORKDIR /etc/openvpn
+
+ENTRYPOINT ["/opt/scripts/entrypoint.sh"]
