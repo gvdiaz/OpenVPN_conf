@@ -8,6 +8,9 @@ case "${BUILD_MODE}" in
     client)
         /opt/scripts/build_client.sh
         ;;
+    bash)
+        /bin/bash
+        ;;
     *)
         echo "Usage: BUILD_MODE must be either 'server' or 'client'"
         exit 1
